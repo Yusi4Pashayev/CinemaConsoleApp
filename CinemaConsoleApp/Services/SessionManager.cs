@@ -189,8 +189,16 @@ namespace CinemaConsoleApp.Services
         {
             Console.WriteLine($"{"SCILEN SEANS",-25}");
             Console.WriteLine("__________________________________________");
-
             Session session = (Session)Get(sessionId);
+
+            for (int i = 0; i < session.Hall.Row + 1; i++)
+            {
+                for (int j = 0; j < session.Hall.Col + 1; j++)
+                {
+                    Console.WriteLine(session.seats[i,j]);
+
+                }
+            }
 
             Console.WriteLine(session);
             Console.WriteLine("__________________________________________");
