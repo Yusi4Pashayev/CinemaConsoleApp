@@ -25,7 +25,7 @@ namespace CinemaConsoleApp.Services
             Ticket ticket = new Ticket();
             ticket.Id = _ticketId;
             Session session =(Session)_sessionManager.Get(sessionId);
-
+            Console.WriteLine($"Bilet N-{_ticketId}");
             Console.WriteLine(session);
             Console.WriteLine("---------------------------------");
             for (int i = 0; i < _sessionManager.Sessions.Length; i++)
