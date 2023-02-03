@@ -49,14 +49,6 @@ namespace CinemaConsoleApp.Services
                     Console.WriteLine("-------------------------------------");
                     return;
                 }
-
-            }
-            for (int i = 0; i < hall.seats.GetLength(0); i++)
-            {
-                for (int j = 0; j < hall.seats.GetLength(1); j++)
-                {
-                    _cinemaManager.Cinemas[i].Hall[i].seats[i, j] = $"{"Empty",-7}";
-                }
             }
             Console.WriteLine("butun zallar elave olunub. her cinemada yalniz 3 zal ola biler");
 
@@ -181,18 +173,7 @@ namespace CinemaConsoleApp.Services
             Console.WriteLine($"{"SECDIYINIZ ZAL",25}");
             Console.WriteLine("-------------------------------------");
             Console.WriteLine(hallForPrint);
-            hallForPrint.seats = new string[hallForPrint.seats.GetLength(0), hallForPrint.seats.GetLength(1)];
-
-            for (int i = 0; i < hallForPrint.seats.GetLength(0); i++)
-            {
-                for (int j = 0; j < hallForPrint.seats.GetLength(1); j++)
-                {
-                    hallForPrint.seats[i, j] = $"{"Empty",-7}";
-                    Console.Write(hallForPrint.seats[i, j]);
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine("-------------------------------------");
+            
         }
     }
 }

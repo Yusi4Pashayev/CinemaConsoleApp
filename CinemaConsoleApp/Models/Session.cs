@@ -7,6 +7,7 @@ namespace CinemaConsoleApp.Models
         internal Cinema Cinema { get; set; }
         internal Hall Hall { get; set; }
         internal Film Film { get; set; }
+        internal string[,] seats { get; set; }
         internal DateTime StartTime { get; set; }
         internal DateTime EndTime { get; set; }
 

@@ -11,7 +11,7 @@ namespace CinemaConsoleApp.Services
         private FilmManager _filmManager;
         private HallManager _hallManager;
         private int _sessionIndex = 0;
-        internal Session[] Session { get; set; } = new Session[21];
+        internal Session[] Sessions { get; set; } = new Session[21];
 
         public SessionManager(CinemaManager cinemaManager, FilmManager filmManager, HallManager hallManager)
         {
@@ -57,7 +57,31 @@ namespace CinemaConsoleApp.Services
         }
         public void Add(Entity entity)
         {
-            Session[_sessionIndex] = (Session)entity;
+            Sessions[_sessionIndex] = (Session)entity;
+            Sessions[_sessionIndex].seats = new string[Sessions[_sessionIndex].Hall.Row+1, Sessions[_sessionIndex].Hall.Col+1];
+            for (int i = 0; i < Sessions[_sessionIndex].Hall.Row+1; i++)
+            {
+                for (int j = 0; j < Sessions[_sessionIndex].Hall.Col+1; j++)
+                {
+                    if (i == 0 && j == 0)
+                    {
+                        Sessions[_sessionIndex].seats[i, j] = $"{"S/S",-7}";
+                    }
+                    if (i > 0 && j == 0)
+                    {
+                        Sessions[_sessionIndex].seats[i, j] = $"{i,-7}";
+                    }
+                    if (i == 0 && j > 0)
+                    {
+                        Sessions[_sessionIndex].seats[i, j] = $"{j,-7}";
+                    }
+                    if (i > 0 && j > 0)
+                    {
+                        Sessions[_sessionIndex].seats[i, j] = $"{"Empty",-7}";
+                    }
+                    
+                }
+            }
             Console.WriteLine("Seans elave olundu");
             Console.WriteLine("___________________________");
 
@@ -71,11 +95,11 @@ namespace CinemaConsoleApp.Services
 
         public void Delete(int id)
         {
-            for (int i = 0; i < Session.Length; i++)
+            for (int i = 0; i < Sessions.Length; i++)
             {
-                if (Session[i].Id == id)
+                if (Sessions[i].Id == id)
                 {
-                    Session[i] = Session[i + 1];
+                    Sessions[i] = Sessions[i + 1];
                     _sessionIndex--;
                     return;
                 }
@@ -85,18 +109,18 @@ namespace CinemaConsoleApp.Services
 
         public Entity[] GetAll()
         {
-            return Session;
+            return Sessions;
         }
 
         public Entity Get(int id)
         {
-            for (int i = 0; i < Session.Length; i++)
+            for (int i = 0; i < Sessions.Length; i++)
             {
-                if (Session[i] == null)
+                if (Sessions[i] == null)
                     continue;
 
-                if (Session[i].Id == id)
-                    return Session[i];
+                if (Sessions[i].Id == id)
+                    return Sessions[i];
             }
             Console.WriteLine("Seans tapilmadi");
             return null;
@@ -138,13 +162,13 @@ namespace CinemaConsoleApp.Services
         }
         public void Update(int id, Entity entity)
         {
-            for (int i = 0; i < Session.Length; i++)
+            for (int i = 0; i < Sessions.Length; i++)
             {
-                if (Session[i] == null)
+                if (Sessions[i] == null)
                     continue;
 
-                if (Session[i].Id == id)
-                    Session[i] = (Session)entity;
+                if (Sessions[i].Id == id)
+                    Sessions[i] = (Session)entity;
             }
         }
         public void Print()
@@ -152,7 +176,7 @@ namespace CinemaConsoleApp.Services
             Console.WriteLine($"{"BUTUN SEANSLARIN SIYAHISI",-30}");
             Console.WriteLine("__________________________________________");
 
-            foreach (var item in Session)
+            foreach (var item in Sessions)
             {
                 if (item == null)
                     continue;
@@ -170,7 +194,7 @@ namespace CinemaConsoleApp.Services
 
             Console.WriteLine(session);
             Console.WriteLine("__________________________________________");
-            
+
 
         }
     }

@@ -33,20 +33,23 @@ namespace CinemaConsoleApp
             {
                 Id = 1,
                 Name = "Zal 1",
-                seats = new string[8,10]
+                Row =8,
+                Col =10
             };
             var zal2 = new Hall
             {
                 Id = 2,
                 Name = "Zal 2",
-                seats = new string[10, 10]
+                Row =10,
+                Col =10
             };
 
             Hall zal3 = new Hall
             {
                 Id = 3,
-                Name = "Zal3",
-                seats = new string[8, 8]
+                Name = "Zal 3",
+                Row = 8, 
+                Col =8
             };
 
             hallManager.Add(1, zal1);
@@ -127,7 +130,7 @@ namespace CinemaConsoleApp
             seanceManager.Print();
 
             ticketManager.BuyTicket(1, 1, 1);
-            ticketManager.Print(1);
+            
 
         }
     }
