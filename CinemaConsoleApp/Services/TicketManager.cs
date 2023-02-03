@@ -36,8 +36,6 @@ namespace CinemaConsoleApp.Services
                 if (_sessionManager.Sessions[i].Id == sessionId)
                 {
                     _sessionManager.Sessions[i].seats[row + 1, col + 1] = $"{"Full",-7}";
-                    Console.WriteLine("Bilet ugurla alindi");
-                    Console.WriteLine("_____________________________________");
                     
                     for (int j = 0; j < session.Hall.Row+1; j++)
                     {
@@ -47,6 +45,8 @@ namespace CinemaConsoleApp.Services
                         }
                         Console.WriteLine();
                     }
+                    Console.WriteLine("\nBilet ugurla alindi");
+                    Console.WriteLine("_____________________________________");
                     return;
                 }
             }
