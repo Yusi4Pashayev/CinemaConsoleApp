@@ -9,7 +9,6 @@ namespace CinemaConsoleApp.Services
     {
         private int _ticketId = 0;
         private SessionManager _sessionManager;
-        
 
         internal TicketmManager(SessionManager sessionManager)
         {
@@ -54,13 +53,6 @@ namespace CinemaConsoleApp.Services
             }
             Console.WriteLine("Seans tapilmadi");
             Console.WriteLine("_____________________________________");
-
-
-        }
-
-        public void PrintTicket(int ticketId)
-        {
-
         }
     }
 }
