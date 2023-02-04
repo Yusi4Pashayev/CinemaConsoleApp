@@ -123,15 +123,15 @@ namespace CinemaConsoleApp
             var date4 = new DateTime(2023, 2, 3, 23, 40, 0);
 
             sessionManager.Add(1, 1, 1, 1, 10, date);
-            sessionManager.Add(1, 2, 5, 1, 8, date1);
-            sessionManager.Add(1, 2, 2, 1, 5, date2);
-            sessionManager.Add(1, 2, 5, 1, 8, date3);
-            sessionManager.Add(1, 2, 5, 1, 8, date4);
+            sessionManager.Add(1, 2, 5, 2, 8, date1);
+            sessionManager.Add(1, 2, 2, 3, 5, date2);
+            sessionManager.Add(1, 2, 5, 4, 8, date3);
+            sessionManager.Add(1, 2, 5, 5, 8, date4);
             sessionManager.Print();
 
             ticketManager.BuyTicket(1, 1, 1);
             ticketManager.BuyTicket(1, 3, 5);
-            ticketManager.BuyTicket(1, 1, 1);
+            ticketManager.BuyTicket(3, 3, 3);
             ticketManager.BuyTicket(1, 3, 5);
 
 
