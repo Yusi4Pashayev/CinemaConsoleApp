@@ -18,49 +18,88 @@ namespace CinemaConsoleApp
                 Id = 1,
                 Name = "GenclikMall",
             };
-
             var parkBulvar = new Cinema()
             {
                 Id = 2,
                 Name = "ParkBulvar",
             };
+            var nizami = new Cinema()
+            {
+                Id = 3,
+                Name = "Nizami",
+            };
+
             cinemaManager.Add(genclikMall);
             cinemaManager.Add(parkBulvar);
+            cinemaManager.Add(nizami);
 
             cinemaManager.Print();
 
-            var zal1 = new Hall
+            Hall zal1 = new Hall
             {
                 Id = 1,
-                Name = "Zal 1",
+                Name = "Tornado",
                 Row = 8,
                 Col = 10
             };
-            var zal2 = new Hall
+            Hall zal2 = new Hall
             {
                 Id = 2,
-                Name = "Zal 2",
+                Name = "Titan",
                 Row = 10,
                 Col = 10
             };
-
             Hall zal3 = new Hall
             {
                 Id = 3,
-                Name = "Zal 3",
+                Name = "Merkuri",
+                Row = 12,
+                Col = 8
+            };
+            Hall zal4 = new Hall
+            {
+                Id = 4,
+                Name = "Venera",
                 Row = 8,
                 Col = 8
+            };
+            Hall zal5 = new Hall
+            {
+                Id = 5,
+                Name = "Andromeda",
+                Row = 15,
+                Col = 12
+            };
+            Hall zal6 = new Hall
+            {
+                Id = 6,
+                Name = "Avropa",
+                Row = 8,
+                Col = 10
+            };
+            Hall zal7 = new Hall
+            {
+                Id = 7,
+                Name = "Pluto",
+                Row = 6,
+                Col = 6
             };
 
             hallManager.Add(1, zal1);
             hallManager.Add(1, zal2);
             hallManager.Add(1, zal3);
-            cinemaManager.Print();
+            hallManager.Add(2, zal4);
+            hallManager.Add(2, zal5);
+            hallManager.Add(3, zal6);
+            hallManager.Add(3, zal7);
 
-
-            hallManager.Delete(3);
             cinemaManager.Print();
             hallManager.Print();
+
+            hallManager.Delete(3);
+            hallManager.Print();
+            cinemaManager.Print();
+            
             hallManager.Print(1);
 
             var film1 = new Film
@@ -95,17 +134,44 @@ namespace CinemaConsoleApp
                 Director = "Olivier Nakache * Éric Toledano",
                 Time = 112,
             };
+            var film5 = new Film
+            {
+                Id = 5,
+                Name = "The Dark Knight",
+                Genre = "Action, Crime, Drama",
+                Director = "Christopher Nolan",
+                Time = 152,
+            };
+            var film6 = new Film
+            {
+                Id = 6,
+                Name = "The Imitation Game",
+                Genre = "Biography, Thriller, Drama",
+                Director = "Morten Tyldum",
+                Time = 116,
+            };
+            var film7 = new Film
+            {
+                Id = 7,
+                Name = "A Beautiful Mind",
+                Genre = "Biography, Drama",
+                Director = "Ron Howard",
+                Time = 135,
+            };
 
             filmManager.Add(film1);
             filmManager.Add(film2);
             filmManager.Add(film3);
             filmManager.Add(film4);
+            filmManager.Add(film5);
+            filmManager.Add(film6);
+            filmManager.Add(film7);
             filmManager.Print();
 
             filmManager.Delete(3);
             filmManager.Print();
 
-            var film5 = new Film
+            var filmForUpdate = new Film
             {
                 Id = 5,
                 Name = "Forrest Gump",
@@ -113,7 +179,7 @@ namespace CinemaConsoleApp
                 Director = "Robert Zemeckis",
                 Time = 142,
             };
-            filmManager.Update(4, film5);
+            filmManager.Update(4, filmForUpdate);
             filmManager.Print();
 
             var date = new DateTime(2023, 2, 3, 9, 0, 0);

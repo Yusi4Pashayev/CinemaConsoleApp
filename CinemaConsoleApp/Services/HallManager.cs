@@ -31,7 +31,7 @@ namespace CinemaConsoleApp.Services
 
             if (cinema == null)
             {
-                Console.WriteLine("Hal hazirda sistemde hec bir filial yoxdur");
+                Console.WriteLine("Hal hazirda sistemde gosterilen ID de filial yoxdur");
                 return;
             }
 
@@ -62,6 +62,7 @@ namespace CinemaConsoleApp.Services
                     {
                         cinemas[i].Hall[j] = null;
                         Console.WriteLine($"ID: {id} olan Zal silindi");
+                        Console.WriteLine("-------------------------------------");
                         return;
                     }
                 }

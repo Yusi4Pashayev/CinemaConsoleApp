@@ -11,7 +11,7 @@ namespace CinemaConsoleApp.Models
         public override string ToString()
         {
 
-            return $"\n{"Zal ID:",-10} {Id,5} {"Zall:",-12} {Name} \n{"Yer sayi:",-12}{Row} x {Col} = {Row*Col}";
+            return $"\n{"Zal ID:",-10} {Id,5} {"Zall:",-12} {Name} \n{"Yer sayi:",-12}{Row} x {Col},  {Row*Col} nefer";
         }
     }
 }
