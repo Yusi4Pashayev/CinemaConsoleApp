@@ -7,7 +7,6 @@ namespace CinemaConsoleApp.Models
         internal string Name { get; set; }
         internal Hall[] Hall { get; set; } = new Hall[3];
 
-
         public override string ToString()
         {
             string hall = "";

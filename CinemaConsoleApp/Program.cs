@@ -33,23 +33,23 @@ namespace CinemaConsoleApp
             {
                 Id = 1,
                 Name = "Zal 1",
-                Row =8,
-                Col =10
+                Row = 8,
+                Col = 10
             };
             var zal2 = new Hall
             {
                 Id = 2,
                 Name = "Zal 2",
-                Row =10,
-                Col =10
+                Row = 10,
+                Col = 10
             };
 
             Hall zal3 = new Hall
             {
                 Id = 3,
                 Name = "Zal 3",
-                Row = 8, 
-                Col =8
+                Row = 8,
+                Col = 8
             };
 
             hallManager.Add(1, zal1);
@@ -122,11 +122,11 @@ namespace CinemaConsoleApp
             var date3 = new DateTime(2023, 2, 3, 20, 30, 0);
             var date4 = new DateTime(2023, 2, 3, 23, 40, 0);
 
-            sessionManager.Add(1, 1, 1, 1, date);
-            sessionManager.Add(1, 2, 5, 1, date1);
-            sessionManager.Add(1, 2, 2, 1, date2);
-            sessionManager.Add(1, 2, 5, 1, date3);
-            sessionManager.Add(1, 2, 5, 1, date4);
+            sessionManager.Add(1, 1, 1, 1, 10, date);
+            sessionManager.Add(1, 2, 5, 1, 8, date1);
+            sessionManager.Add(1, 2, 2, 1, 5, date2);
+            sessionManager.Add(1, 2, 5, 1, 8, date3);
+            sessionManager.Add(1, 2, 5, 1, 8, date4);
             sessionManager.Print();
 
             ticketManager.BuyTicket(1, 1, 1);

@@ -20,7 +20,7 @@ namespace CinemaConsoleApp.Services
             _hallManager = hallManager;
         }
 
-        public void Add(int cinemaId, int hallId, int filmId, int sessionId, DateTime seanceTime)
+        public void Add(int cinemaId, int hallId, int filmId, int sessionId,int price, DateTime seanceTime)
         {
             if ((Cinema)_cinemaManager.Get(cinemaId) == null)
             {
@@ -50,7 +50,8 @@ namespace CinemaConsoleApp.Services
                 Hall = (Hall)_hallManager.Get(hallId),
                 Film = (Film)_filmManager.Get(filmId),
                 StartTime = seanceTime,
-                EndTime = seanceTime.AddMinutes((int)((Film)_filmManager.Get(filmId)).Time)
+                EndTime = seanceTime.AddMinutes((int)((Film)_filmManager.Get(filmId)).Time),
+                Price = price
             };
 
             Add(session);
