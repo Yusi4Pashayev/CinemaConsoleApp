@@ -24,10 +24,8 @@ namespace CinemaConsoleApp.Services
             _ticketId++;
             Ticket ticket = new Ticket();
             ticket.Id = _ticketId;
-            Session session =(Session)_sessionManager.Get(sessionId);
-            Console.WriteLine($"Bilet N-{_ticketId}");
-            Console.WriteLine(session);
-            Console.WriteLine("---------------------------------");
+            Session session = (Session)_sessionManager.Get(sessionId);
+            
             for (int i = 0; i < _sessionManager.Sessions.Length; i++)
             {
                 if (_sessionManager.Sessions[i] == null)
@@ -35,11 +33,19 @@ namespace CinemaConsoleApp.Services
 
                 if (_sessionManager.Sessions[i].Id == sessionId)
                 {
-                    _sessionManager.Sessions[i].seats[row + 1, col + 1] = $"{"Full",-7}";
-                    
-                    for (int j = 0; j < session.Hall.Row+1; j++)
+                    if (_sessionManager.Sessions[i].seats[row, col] == $"{"Full",-7}")
                     {
-                        for (int k = 0; k < session.Hall.Col+1; k++)
+                        Console.WriteLine($"Bu seansda {row} sira {col} yer artiq alinmisdir");
+                        return;
+                    }
+                    Console.WriteLine($"Bilet N-{_ticketId}");
+                    Console.WriteLine(session);
+                    Console.WriteLine("---------------------------------");
+                    _sessionManager.Sessions[i].seats[row, col] = $"{"Full",-7}";
+
+                    for (int j = 0; j < session.Hall.Row + 1; j++)
+                    {
+                        for (int k = 0; k < session.Hall.Col + 1; k++)
                         {
                             Console.Write(_sessionManager.Sessions[i].seats[j, k]);
                         }
@@ -58,7 +64,7 @@ namespace CinemaConsoleApp.Services
 
         public void PrintTicket(int ticketId)
         {
-            
+
         }
     }
 }

@@ -130,7 +130,10 @@ namespace CinemaConsoleApp
             seanceManager.Print();
 
             ticketManager.BuyTicket(1, 1, 1);
-            
+            ticketManager.BuyTicket(1, 3, 5);
+            ticketManager.BuyTicket(1, 1, 1);
+            ticketManager.BuyTicket(1, 3, 5);
+
 
         }
     }
