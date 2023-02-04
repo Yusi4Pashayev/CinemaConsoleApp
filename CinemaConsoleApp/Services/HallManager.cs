@@ -146,6 +146,7 @@ namespace CinemaConsoleApp.Services
                     continue;
                 }
                 Console.WriteLine(item);
+                Console.WriteLine("-------------------------------------");
             }
             Console.WriteLine("_____________________________________");
         }

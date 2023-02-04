@@ -125,7 +125,7 @@ namespace CinemaConsoleApp.Services
             Console.WriteLine("Seans tapilmadi");
             return null;
         }
-        public void Update(int cinemaId, int hallId, int filmId, DateTime seanceTime, int sessionId)
+        public void Update(int cinemaId, int hallId, int filmId, DateTime seanceTime, int sessionId,int price,int newSessionId)
         {
 
             if ((Cinema)_cinemaManager.Get(cinemaId) == null)
@@ -151,11 +151,14 @@ namespace CinemaConsoleApp.Services
 
             var seans = new Session
             {
+                Id= newSessionId,
                 Cinema = (Cinema)_cinemaManager.Get(cinemaId),
                 Hall = (Hall)_hallManager.Get(hallId),
                 Film = (Film)_filmManager.Get(filmId),
                 StartTime = seanceTime,
-                EndTime = seanceTime.AddMinutes((int)((Film)_filmManager.Get(filmId)).Time)
+                EndTime = seanceTime.AddMinutes((int)((Film)_filmManager.Get(filmId)).Time),
+                Price= price
+                
             };
 
             Update(sessionId, seans);
@@ -168,7 +171,11 @@ namespace CinemaConsoleApp.Services
                     continue;
 
                 if (Sessions[i].Id == id)
+                {
                     Sessions[i] = (Session)entity;
+                    Console.WriteLine("Seans ugurla deyisdirildi");
+                    return;
+                }
             }
         }
         public void Print()
@@ -190,13 +197,19 @@ namespace CinemaConsoleApp.Services
             Console.WriteLine($"{"SCILEN SEANS",25}");
             Console.WriteLine("__________________________________________");
             Session session = (Session)Get(sessionId);
+            if (session == null)
+            {
+                Console.WriteLine("Bu id ile Seans yoxdur");
+                return;
+            }
 
             for (int i = 0; i < session.Hall.Row + 1; i++)
             {
                 for (int j = 0; j < session.Hall.Col + 1; j++)
                 {
-                    Console.WriteLine(session.seats[i,j]);
+                    Console.Write(session.seats[i,j]);
                 }
+                Console.WriteLine();
             }
             Console.WriteLine(session);
             Console.WriteLine("__________________________________________");

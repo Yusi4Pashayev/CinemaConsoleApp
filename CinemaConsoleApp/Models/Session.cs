@@ -14,7 +14,7 @@ namespace CinemaConsoleApp.Models
 
         public override string ToString()
         {
-            return $"{"Filial ID:",-12}{Cinema.Id,-5}{"Filial Adi:",-12}{Cinema.Name}\n" +
+            return $"{"Seans ID:",-12}{Id,-5}\n{"Filial ID:",-12}{Cinema.Id,-5}{"Filial Adi:",-12}{Cinema.Name}\n" +
                 $"{"Zall ID:",-12}{Hall.Id,-5}{"Zall Adi:",-12}{Hall.Name}\n{"Filma ID:",-12}{Film.Id,-5}{"FIlm Adi:",-12}{Film.Name}\n" +
                 $"{"Baslama vaxti:",-12}{StartTime}\n{"Bitme vaxti:",-12}{EndTime}\n{"Qiymeti:",-12}{Price} AZN";
         }

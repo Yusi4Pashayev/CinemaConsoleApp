@@ -28,12 +28,11 @@ namespace CinemaConsoleApp
                 Id = 3,
                 Name = "Nizami",
             };
-
-            cinemaManager.Add(genclikMall);
-            cinemaManager.Add(parkBulvar);
-            cinemaManager.Add(nizami);
-
-            cinemaManager.Print();
+            var flameTowrs = new Cinema()
+            {
+                Id = 4,
+                Name = "FlameTowrs",
+            };
 
             Hall zal1 = new Hall
             {
@@ -77,31 +76,13 @@ namespace CinemaConsoleApp
                 Row = 8,
                 Col = 10
             };
-            Hall zal7 = new Hall
+            Hall zallForUpdate = new Hall
             {
                 Id = 7,
                 Name = "Pluto",
                 Row = 6,
                 Col = 6
             };
-
-            hallManager.Add(1, zal1);
-            hallManager.Add(1, zal2);
-            hallManager.Add(1, zal3);
-            hallManager.Add(2, zal4);
-            hallManager.Add(2, zal5);
-            hallManager.Add(3, zal6);
-            hallManager.Add(3, zal7);
-
-            cinemaManager.Print();
-            hallManager.Print();
-
-            hallManager.Delete(3);
-            hallManager.Print();
-            cinemaManager.Print();
-            
-            hallManager.Print(1);
-
             var film1 = new Film
             {
                 Id = 1,
@@ -158,19 +139,6 @@ namespace CinemaConsoleApp
                 Director = "Ron Howard",
                 Time = 135,
             };
-
-            filmManager.Add(film1);
-            filmManager.Add(film2);
-            filmManager.Add(film3);
-            filmManager.Add(film4);
-            filmManager.Add(film5);
-            filmManager.Add(film6);
-            filmManager.Add(film7);
-            filmManager.Print();
-
-            filmManager.Delete(3);
-            filmManager.Print();
-
             var filmForUpdate = new Film
             {
                 Id = 5,
@@ -179,27 +147,127 @@ namespace CinemaConsoleApp
                 Director = "Robert Zemeckis",
                 Time = 142,
             };
-            filmManager.Update(4, filmForUpdate);
-            filmManager.Print();
-
             var date = new DateTime(2023, 2, 3, 9, 0, 0);
             var date1 = new DateTime(2023, 2, 3, 12, 20, 0);
             var date2 = new DateTime(2023, 2, 3, 16, 20, 0);
             var date3 = new DateTime(2023, 2, 3, 20, 30, 0);
             var date4 = new DateTime(2023, 2, 3, 23, 40, 0);
 
-            sessionManager.Add(1, 1, 1, 1, 10, date);
-            sessionManager.Add(1, 2, 5, 2, 8, date1);
-            sessionManager.Add(1, 2, 2, 3, 5, date2);
-            sessionManager.Add(1, 2, 5, 4, 8, date3);
-            sessionManager.Add(1, 2, 5, 5, 8, date4);
-            sessionManager.Print();
+            string command = "";
+            int id, row, col;
 
-            ticketManager.BuyTicket(1, 1, 1);
-            ticketManager.BuyTicket(1, 3, 5);
-            ticketManager.BuyTicket(3, 3, 3);
-            ticketManager.BuyTicket(1, 3, 5);
+            Console.WriteLine("Command List:");
+            Console.WriteLine("1. add cinema\n2. delete cinema\n3. update cinema\n4. print cinemas\n5. add hall\n6. delete hall\n7. update hall\n8. print halls\n9. print hall with id\n" +
+                "10. add film\n11. delete film\n12. update film\n13. print films\n14. add session\n15. delete session\n16. update session\n17. print sessions\n18. print session with id\n" +
+                "19. buy ticket");
 
+            while (true)
+            {
+                do
+                {
+                    Console.Write("Write command:");
+                    command = (Console.ReadLine().ToLower()).Trim();
+                    id = 0;
+
+                    switch (command)
+                    {
+                        case "add cinema":
+                            cinemaManager.Add(genclikMall);
+                            cinemaManager.Add(parkBulvar);
+                            cinemaManager.Add(nizami);
+                            break;
+                        case "delete cinema":
+                            Console.Write("Silmek istediyniz cinemanin id sini daxil edin:");
+                            id = int.Parse(Console.ReadLine());
+                            cinemaManager.Delete(id);
+                            break;
+                        case "update cinema":
+                            Console.Write("Deyismek istediyniz cinemanin id sini daxil edin:");
+                            id = int.Parse(Console.ReadLine());
+                            cinemaManager.Update(id, flameTowrs);
+                            break;
+                        case "print cinemas":
+                            cinemaManager.Print();
+                            break;
+                        case "add hall":
+                            hallManager.Add(1, zal1);
+                            hallManager.Add(1, zal2);
+                            hallManager.Add(1, zal3);
+                            hallManager.Add(2, zal4);
+                            hallManager.Add(2, zal5);
+                            hallManager.Add(3, zal6);
+                            break;
+                        case "delete hall":
+                            Console.Write("Silmek istediyniz zalin id sini daxil edin:");
+                            id = int.Parse(Console.ReadLine());
+                            hallManager.Delete(id);
+                            break;
+                        case "update hall":
+                            Console.Write("Deyismek istediyniz zalin id sini daxil edin:");
+                            id = int.Parse(Console.ReadLine());
+                            hallManager.Update(id, zallForUpdate);
+                            break;
+                        case "print halls":
+                            hallManager.Print();
+                            break;
+                        case "print hall with id":
+                            Console.Write("secdiyiniz zalin id sini daxil edin:");
+                            id = int.Parse(Console.ReadLine());
+                            hallManager.Print(id);
+                            break;
+                        case "add film":
+                            filmManager.Add(film1);
+                            filmManager.Add(film2);
+                            filmManager.Add(film3);
+                            filmManager.Add(film4);
+                            filmManager.Add(film5);
+                            filmManager.Add(film6);
+                            filmManager.Add(film7);
+                            break;
+                        case "delete film":
+                            Console.Write("Silmek istediyiniz filmin id sini daxil edin:");
+                            id = int.Parse(Console.ReadLine());
+                            filmManager.Delete(id);
+                            break;
+                        case "update film":
+                            Console.Write("Deyismek istediyiniz filmin id sini daxil edin:");
+                            id = int.Parse(Console.ReadLine());
+                            filmManager.Update(id, filmForUpdate);
+                            break;
+                        case "print films":
+                            filmManager.Print();
+                            break;
+                        case "add session":
+                            sessionManager.Add(1, 1, 1, 1, 10, date);
+                            sessionManager.Add(1, 2, 5, 2, 8, date1);
+                            sessionManager.Add(1, 2, 2, 3, 5, date2);
+                            sessionManager.Add(1, 2, 5, 4, 8, date3);
+                            sessionManager.Add(1, 2, 5, 5, 8, date4);
+                            break;
+                        case "update session":
+                            sessionManager.Update(1, 2, 5, date4, 1, 7, 6);
+                            break;
+                        case "print sessions":
+                            sessionManager.Print();
+                            break;
+                        case "print session with id":
+                            Console.Write("Baxmaq istediyiniz seansin id sini daxil edin:");
+                            id = int.Parse(Console.ReadLine());
+                            sessionManager.Print(id);
+                            break;
+                        case "buy ticket":
+                            Console.Write("Seansin Id sini daxil edin:");
+                            id = int.Parse(Console.ReadLine());
+                            Console.Write("Sira secin:");
+                            row = int.Parse(Console.ReadLine());
+                            Console.Write("Yer secin:");
+                            col = int.Parse(Console.ReadLine());
+                            ticketManager.BuyTicket(id, row, col);
+                            break;
+                    }
+
+                } while (command == "quit");
+            }
 
         }
     }

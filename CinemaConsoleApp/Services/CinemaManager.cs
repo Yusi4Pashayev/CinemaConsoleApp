@@ -78,6 +78,8 @@ namespace CinemaConsoleApp.Services
                 if (Cinemas[i].Id == id)
                     Cinemas[i] = (Cinema)entity;
             }
+            Console.WriteLine("Cinema ugurla deyisdirildi");
+            Console.WriteLine("_____________________________________");
         }
         public void Print()
         {
