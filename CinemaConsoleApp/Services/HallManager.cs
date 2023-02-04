@@ -10,8 +10,6 @@ namespace CinemaConsoleApp.Services
         private int _hallIndex = 0;
         private Hall[] halls = new Hall[10];
 
-
-
         public HallManager(CinemaManager cinemaManager)
         {
             _cinemaManager = cinemaManager;
@@ -30,7 +28,6 @@ namespace CinemaConsoleApp.Services
                 if (_cinemaManager.Cinemas[i].Id == cinemaId)
                    cinema = _cinemaManager.Cinemas[i];
             }
-
 
             if (cinema == null)
             {
@@ -51,7 +48,6 @@ namespace CinemaConsoleApp.Services
                 }
             }
             Console.WriteLine("butun zallar elave olunub. her cinemada yalniz 3 zal ola biler");
-
         }
 
         public void Delete(int id)
@@ -68,7 +64,6 @@ namespace CinemaConsoleApp.Services
                         Console.WriteLine($"ID: {id} olan Zal silindi");
                         return;
                     }
-
                 }
             }
             Console.WriteLine($"ID: {id} olan Zal hec bir filialda yoxdur ");
@@ -91,7 +86,6 @@ namespace CinemaConsoleApp.Services
                     _hallIndex++;
                 }
             }
-
             return halls;
         }
 
@@ -118,7 +112,6 @@ namespace CinemaConsoleApp.Services
                 }
             }
             return null;
-
         }
 
         public void Update(int id, Entity entity)
@@ -135,7 +128,6 @@ namespace CinemaConsoleApp.Services
                         Console.WriteLine($"ID: {id} olan Zal melumatlari deyisdirildi");
                         return;
                     }
-
                 }
             }
             Console.WriteLine($"ID: {id} olan Zal hec bir filialda yoxdur ");
@@ -165,6 +157,7 @@ namespace CinemaConsoleApp.Services
         public void Print(int id)
         {
             Hall hallForPrint = (Hall)Get(id);
+
             if (hallForPrint == null)
             {
                 Console.WriteLine("bu ID ile Zal movcud deyil.");
@@ -173,7 +166,8 @@ namespace CinemaConsoleApp.Services
             Console.WriteLine($"{"SECDIYINIZ ZAL",25}");
             Console.WriteLine("-------------------------------------");
             Console.WriteLine(hallForPrint);
-            
+            Console.WriteLine("_____________________________________");
+
         }
     }
 }

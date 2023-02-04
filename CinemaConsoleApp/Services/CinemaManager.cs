@@ -10,7 +10,6 @@ namespace CinemaConsoleApp.Services
         private int _cinemaIndex = 0;
         internal Cinema[] Cinemas { get; set; } = new Cinema[4];
 
-
         public void Add(Entity entity)
         {
             if (_cinemaIndex > 2)
@@ -19,7 +18,7 @@ namespace CinemaConsoleApp.Services
                 return;
             }
             Cinemas[_cinemaIndex++] = (Cinema)entity;
-            Console.WriteLine("Cinema elave olundu");
+            Console.WriteLine($"{entity.Id} Id-li Cinema elave olundu");
             Console.WriteLine("-------------------------------------");
         }
 
@@ -45,7 +44,6 @@ namespace CinemaConsoleApp.Services
                     Console.WriteLine($"ID: {id}, Cinema silindi!");
                     return;
                 }
-
             }
             if (!found)
                 Console.WriteLine($"ID: {id}, Cinema tapilmadi");
@@ -77,12 +75,9 @@ namespace CinemaConsoleApp.Services
                 if (Cinemas[i] == null)
                     continue;
 
-
                 if (Cinemas[i].Id == id)
                     Cinemas[i] = (Cinema)entity;
             }
-
-            
         }
         public void Print()
         {
@@ -97,7 +92,6 @@ namespace CinemaConsoleApp.Services
                 Console.WriteLine(item);
                 Console.WriteLine("_____________________________________");
             }
-            
         }
     }
 }

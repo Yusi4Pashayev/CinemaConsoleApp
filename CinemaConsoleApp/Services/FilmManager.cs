@@ -11,14 +11,13 @@ namespace CinemaConsoleApp.Services
         
         public void Add(Entity entity)
         {
-            
             if (_filmIndex > 9)
             {
                 Console.WriteLine("Maximum 10 Film Elave etmek olar!");
                 return;
             }
             Films[_filmIndex++] = (Film)entity;
-            Console.WriteLine("Film elave olundu");
+            Console.WriteLine($"{entity.Id} Id -li Film elave olundu");
         }
 
         public void Delete(int id)
@@ -43,7 +42,6 @@ namespace CinemaConsoleApp.Services
                     Console.WriteLine($"ID: {id}, Film silindi!");
                     return;
                 }
-
             }
             if (!found)
                 Console.WriteLine($"ID: {id}, Film tapilmadi");
@@ -75,11 +73,10 @@ namespace CinemaConsoleApp.Services
                 if (Films[i] == null)
                     continue;
 
-
                 if (Films[i].Id == id)
                 {
+                    Console.WriteLine($"{Films[i].Id} Id -li Film melumati deyisdirildi");
                     Films[i] = (Film)entity;
-                    Console.WriteLine("Film melumati deyisdirildi");
                     Console.WriteLine("______________________________");
                     return;
                 }

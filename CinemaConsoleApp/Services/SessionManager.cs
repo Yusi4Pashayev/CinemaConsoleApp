@@ -39,7 +39,7 @@ namespace CinemaConsoleApp.Services
             }
             if (((Film)_filmManager.Get(filmId)).Time == 0)
             {
-                Console.WriteLine($"{filmId} Cinema melumatlari Tapilmadi");
+                Console.WriteLine($"{filmId} Id li film melumatlari tam deyil");
                 return;
             }
 
@@ -53,7 +53,6 @@ namespace CinemaConsoleApp.Services
                 EndTime = seanceTime.AddMinutes((int)((Film)_filmManager.Get(filmId)).Time),
                 Price = price
             };
-
             Add(session);
         }
         public void Add(Entity entity)
@@ -80,13 +79,13 @@ namespace CinemaConsoleApp.Services
                     {
                         Sessions[_sessionIndex].seats[i, j] = $"{"Empty",-7}";
                     }
-                    
                 }
             }
             Console.WriteLine("Seans elave olundu");
             Console.WriteLine("___________________________");
 
             _sessionIndex++;
+
             if (_sessionIndex > 19)
             {
                 Console.WriteLine("Seans limitini kecmisiz");
@@ -174,7 +173,7 @@ namespace CinemaConsoleApp.Services
         }
         public void Print()
         {
-            Console.WriteLine($"{"BUTUN SEANSLARIN SIYAHISI",-30}");
+            Console.WriteLine($"{"BUTUN SEANSLARIN SIYAHISI",30}");
             Console.WriteLine("__________________________________________");
 
             foreach (var item in Sessions)
@@ -188,7 +187,7 @@ namespace CinemaConsoleApp.Services
         }
         public void Print(int sessionId)
         {
-            Console.WriteLine($"{"SCILEN SEANS",-25}");
+            Console.WriteLine($"{"SCILEN SEANS",25}");
             Console.WriteLine("__________________________________________");
             Session session = (Session)Get(sessionId);
 
@@ -197,14 +196,10 @@ namespace CinemaConsoleApp.Services
                 for (int j = 0; j < session.Hall.Col + 1; j++)
                 {
                     Console.WriteLine(session.seats[i,j]);
-
                 }
             }
-
             Console.WriteLine(session);
             Console.WriteLine("__________________________________________");
-
-
         }
     }
 }
