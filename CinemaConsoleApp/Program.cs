@@ -10,8 +10,8 @@ namespace CinemaConsoleApp
             var cinemaManager = new CinemaManager();
             var hallManager = new HallManager(cinemaManager);
             var filmManager = new FilmManager();
-            var seanceManager = new SessionManager(cinemaManager, filmManager, hallManager);
-            var ticketManager = new TicketmManager(seanceManager, hallManager, cinemaManager);
+            var sessionManager = new SessionManager(cinemaManager, filmManager, hallManager);
+            var ticketManager = new TicketmManager(sessionManager);
 
             var genclikMall = new Cinema()
             {
@@ -122,12 +122,12 @@ namespace CinemaConsoleApp
             var date3 = new DateTime(2023, 2, 3, 20, 30, 0);
             var date4 = new DateTime(2023, 2, 3, 23, 40, 0);
 
-            seanceManager.Add(1, 1, 1, 1, date);
-            seanceManager.Add(1, 2, 5, 1, date1);
-            seanceManager.Add(1, 2, 2, 1, date2);
-            seanceManager.Add(1, 2, 5, 1, date3);
-            seanceManager.Add(1, 2, 5, 1, date4);
-            seanceManager.Print();
+            sessionManager.Add(1, 1, 1, 1, date);
+            sessionManager.Add(1, 2, 5, 1, date1);
+            sessionManager.Add(1, 2, 2, 1, date2);
+            sessionManager.Add(1, 2, 5, 1, date3);
+            sessionManager.Add(1, 2, 5, 1, date4);
+            sessionManager.Print();
 
             ticketManager.BuyTicket(1, 1, 1);
             ticketManager.BuyTicket(1, 3, 5);

@@ -8,16 +8,12 @@ namespace CinemaConsoleApp.Services
     internal class TicketmManager
     {
         private int _ticketId = 0;
-
         private SessionManager _sessionManager;
-        private HallManager _hallManager;
-        private CinemaManager _cinemaManager;
+        
 
-        internal TicketmManager(SessionManager sessionManager, HallManager hallManager, CinemaManager cinemaManager)
+        internal TicketmManager(SessionManager sessionManager)
         {
-            _cinemaManager = cinemaManager;
             _sessionManager = sessionManager;
-            _hallManager = hallManager;
         }
         public void BuyTicket(int sessionId, int row, int col)
         {
