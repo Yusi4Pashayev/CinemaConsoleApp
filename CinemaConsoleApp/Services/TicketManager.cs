@@ -16,9 +16,8 @@ namespace CinemaConsoleApp.Services
         }
         public void BuyTicket(int sessionId, int row, int col)
         {
-            _ticketId++;
             Ticket ticket = new Ticket();
-            ticket.Id = _ticketId;
+            
             Session session = (Session)_sessionManager.Get(sessionId);
             
             for (int i = 0; i < _sessionManager.Sessions.Length; i++)
@@ -37,6 +36,8 @@ namespace CinemaConsoleApp.Services
                     Console.WriteLine(session);
                     Console.WriteLine("---------------------------------");
                     _sessionManager.Sessions[i].seats[row, col] = $"{"Full",-7}";
+                    _ticketId++;
+                    ticket.Id = _ticketId;
 
                     for (int j = 0; j < session.Hall.Row + 1; j++)
                     {
